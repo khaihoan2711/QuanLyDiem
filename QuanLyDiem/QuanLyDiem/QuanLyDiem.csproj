@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201903271644457_InitDatabase.Designer.cs">
       <DependentUpon>201903271644457_InitDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903271651481_InsertDefaultData.cs" />
+    <Compile Include="Migrations\201903271651481_InsertDefaultData.Designer.cs">
+      <DependentUpon>201903271651481_InsertDefaultData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -273,6 +277,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903271644457_InitDatabase.resx">
       <DependentUpon>201903271644457_InitDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903271651481_InsertDefaultData.resx">
+      <DependentUpon>201903271651481_InsertDefaultData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
