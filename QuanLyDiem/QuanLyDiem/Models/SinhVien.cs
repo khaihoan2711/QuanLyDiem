@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuanLyDiem.Models
 {
     public class SinhVien
     {
-        [Key]
+        [Key]        
         public int Id { get; set; }        
         public string Ho { get; set; }
         public string Ten { get; set; }

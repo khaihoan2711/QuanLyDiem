@@ -179,13 +179,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903271644457_InitDatabase.cs" />
-    <Compile Include="Migrations\201903271644457_InitDatabase.Designer.cs">
-      <DependentUpon>201903271644457_InitDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201903281454556_InitDB.cs" />
+    <Compile Include="Migrations\201903281454556_InitDB.Designer.cs">
+      <DependentUpon>201903281454556_InitDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903271651481_InsertDefaultData.cs" />
-    <Compile Include="Migrations\201903271651481_InsertDefaultData.Designer.cs">
-      <DependentUpon>201903271651481_InsertDefaultData.cs</DependentUpon>
+    <Compile Include="Migrations\201903281456479_TaoDataMau.cs" />
+    <Compile Include="Migrations\201903281456479_TaoDataMau.Designer.cs">
+      <DependentUpon>201903281456479_TaoDataMau.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -275,11 +275,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903271644457_InitDatabase.resx">
-      <DependentUpon>201903271644457_InitDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903281454556_InitDB.resx">
+      <DependentUpon>201903281454556_InitDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903271651481_InsertDefaultData.resx">
-      <DependentUpon>201903271651481_InsertDefaultData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903281456479_TaoDataMau.resx">
+      <DependentUpon>201903281456479_TaoDataMau.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

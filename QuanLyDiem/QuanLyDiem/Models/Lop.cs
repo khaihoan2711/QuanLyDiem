@@ -1,8 +1,12 @@
-﻿namespace QuanLyDiem.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace QuanLyDiem.Models
 {
     public class Lop
     {
         //Mã lớp học
+        [Key]        
         public int Id { get; set; }
         //Tên lớp
         public string TenLop { get; set; }

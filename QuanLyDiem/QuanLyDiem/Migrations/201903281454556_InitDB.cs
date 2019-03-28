@@ -3,7 +3,7 @@ namespace QuanLyDiem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitDatabase : DbMigration
+    public partial class InitDB : DbMigration
     {
         public override void Up()
         {
@@ -26,7 +26,7 @@ namespace QuanLyDiem.Migrations
                 "dbo.MonHocs",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         TenMonHoc = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -35,7 +35,7 @@ namespace QuanLyDiem.Migrations
                 "dbo.SinhViens",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         Ho = c.String(),
                         Ten = c.String(),
                         NgaySinh = c.DateTime(nullable: false),
@@ -53,7 +53,7 @@ namespace QuanLyDiem.Migrations
                 "dbo.Lops",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         TenLop = c.String(),
                         SiSo = c.Int(nullable: false),
                         KhoaID = c.Int(nullable: false),
@@ -66,7 +66,7 @@ namespace QuanLyDiem.Migrations
                 "dbo.Khoas",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         TenKhoa = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
