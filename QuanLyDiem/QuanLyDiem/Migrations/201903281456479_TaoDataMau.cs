@@ -78,11 +78,31 @@ namespace QuanLyDiem.Migrations
             Sql("INSERT INTO SINHVIENS(Id, Ho, Ten, NgaySinh, DiaChi, DienThoai, GioiTinh, NienKhoa, LopId) VALUES(13, N'Đồng Hữu', N'Quân', '11/27/2003', N'Lào Cai', '0357183746',1, '2013', 5)");
             Sql("INSERT INTO SINHVIENS(Id, Ho, Ten, NgaySinh, DiaChi, DienThoai, GioiTinh, NienKhoa, LopId) VALUES(14, N'Phạm Đào Anh', N'Hương', '11/27/2004', N'Sơn La', '0357375616',1, '2015', 5)");
             Sql("INSERT INTO SINHVIENS(Id, Ho, Ten, NgaySinh, DiaChi, DienThoai, GioiTinh, NienKhoa, LopId) VALUES(15, N'Phạm Đào Anh', N'Hương', '11/27/2005', N'Đà Lạt', '0357254616',1, '2015', 5)");
+
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (1, 1, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (2, 2, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (3, 3, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (4, 4, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (5, 5, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (1, 2, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (2, 3, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (3, 4, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (4, 5, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (5, 6, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (1, 3, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (2, 4, 1, 1)");
+            Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (3, 5, 1, 1)");
         }
 
 
         public override void Down()
         {
+            Sql("DELETE KETQUAS");
+            Sql("DELETE SINHVIENS");
+            Sql("DELETE KHOAMONS");
+            Sql("DELETE LOPS");
+            Sql("DELETE MONHOCS");
+            Sql("DELETE KHOAS");
         }
     }
 }

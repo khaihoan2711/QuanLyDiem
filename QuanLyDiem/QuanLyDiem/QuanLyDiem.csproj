@@ -187,6 +187,10 @@
     <Compile Include="Migrations\201903281456479_TaoDataMau.Designer.cs">
       <DependentUpon>201903281456479_TaoDataMau.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903281544580_TaoThemDataChoBangKETQUAs.cs" />
+    <Compile Include="Migrations\201903281544580_TaoThemDataChoBangKETQUAs.Designer.cs">
+      <DependentUpon>201903281544580_TaoThemDataChoBangKETQUAs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -280,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903281456479_TaoDataMau.resx">
       <DependentUpon>201903281456479_TaoDataMau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903281544580_TaoThemDataChoBangKETQUAs.resx">
+      <DependentUpon>201903281544580_TaoThemDataChoBangKETQUAs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
