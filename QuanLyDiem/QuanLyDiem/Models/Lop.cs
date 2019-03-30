@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuanLyDiem.Models
@@ -14,6 +15,6 @@ namespace QuanLyDiem.Models
         public int SiSo { get; set; }
         //Mã Khoa đào tạo
         public int KhoaID { get; set; }
-        public virtual Khoa Khoa { get; set; }
+        public IEnumerable<Khoa> Khoa { get; set; }
     }
 }

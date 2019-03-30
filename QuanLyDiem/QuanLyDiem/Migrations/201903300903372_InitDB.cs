@@ -26,7 +26,7 @@ namespace QuanLyDiem.Migrations
                 "dbo.MonHocs",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         TenMonHoc = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -35,7 +35,7 @@ namespace QuanLyDiem.Migrations
                 "dbo.SinhViens",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Ho = c.String(),
                         Ten = c.String(),
                         NgaySinh = c.DateTime(nullable: false),
@@ -44,30 +44,6 @@ namespace QuanLyDiem.Migrations
                         GioiTinh = c.Int(nullable: false),
                         NienKhoa = c.DateTime(nullable: false),
                         LopId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Lops", t => t.LopId, cascadeDelete: true)
-                .Index(t => t.LopId);
-            
-            CreateTable(
-                "dbo.Lops",
-                c => new
-                    {
-                        Id = c.Int(nullable: false),
-                        TenLop = c.String(),
-                        SiSo = c.Int(nullable: false),
-                        KhoaID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Khoas", t => t.KhoaID, cascadeDelete: true)
-                .Index(t => t.KhoaID);
-            
-            CreateTable(
-                "dbo.Khoas",
-                c => new
-                    {
-                        Id = c.Int(nullable: false),
-                        TenKhoa = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -85,6 +61,26 @@ namespace QuanLyDiem.Migrations
                 .ForeignKey("dbo.MonHocs", t => t.MonHocId, cascadeDelete: true)
                 .Index(t => t.KhoaId)
                 .Index(t => t.MonHocId);
+            
+            CreateTable(
+                "dbo.Khoas",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        TenKhoa = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Lops",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        TenLop = c.String(),
+                        SiSo = c.Int(nullable: false),
+                        KhoaID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -165,8 +161,6 @@ namespace QuanLyDiem.Migrations
             DropForeignKey("dbo.KhoaMons", "MonHocId", "dbo.MonHocs");
             DropForeignKey("dbo.KhoaMons", "KhoaId", "dbo.Khoas");
             DropForeignKey("dbo.KetQuas", "SinhVienId", "dbo.SinhViens");
-            DropForeignKey("dbo.SinhViens", "LopId", "dbo.Lops");
-            DropForeignKey("dbo.Lops", "KhoaID", "dbo.Khoas");
             DropForeignKey("dbo.KetQuas", "MonHocId", "dbo.MonHocs");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -176,8 +170,6 @@ namespace QuanLyDiem.Migrations
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.KhoaMons", new[] { "MonHocId" });
             DropIndex("dbo.KhoaMons", new[] { "KhoaId" });
-            DropIndex("dbo.Lops", new[] { "KhoaID" });
-            DropIndex("dbo.SinhViens", new[] { "LopId" });
             DropIndex("dbo.KetQuas", new[] { "MonHocId" });
             DropIndex("dbo.KetQuas", new[] { "SinhVienId" });
             DropTable("dbo.AspNetUserLogins");
@@ -185,9 +177,9 @@ namespace QuanLyDiem.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.KhoaMons");
-            DropTable("dbo.Khoas");
             DropTable("dbo.Lops");
+            DropTable("dbo.Khoas");
+            DropTable("dbo.KhoaMons");
             DropTable("dbo.SinhViens");
             DropTable("dbo.MonHocs");
             DropTable("dbo.KetQuas");

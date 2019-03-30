@@ -175,21 +175,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhoaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903281454556_InitDB.cs" />
-    <Compile Include="Migrations\201903281454556_InitDB.Designer.cs">
-      <DependentUpon>201903281454556_InitDB.cs</DependentUpon>
+    <Compile Include="Migrations\201903300903372_InitDB.cs" />
+    <Compile Include="Migrations\201903300903372_InitDB.Designer.cs">
+      <DependentUpon>201903300903372_InitDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903281456479_TaoDataMau.cs" />
-    <Compile Include="Migrations\201903281456479_TaoDataMau.Designer.cs">
-      <DependentUpon>201903281456479_TaoDataMau.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903281544580_TaoThemDataChoBangKETQUAs.cs" />
-    <Compile Include="Migrations\201903281544580_TaoThemDataChoBangKETQUAs.Designer.cs">
-      <DependentUpon>201903281544580_TaoThemDataChoBangKETQUAs.cs</DependentUpon>
+    <Compile Include="Migrations\201903300904503_TaoDataMau.cs" />
+    <Compile Include="Migrations\201903300904503_TaoDataMau.Designer.cs">
+      <DependentUpon>201903300904503_TaoDataMau.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -261,6 +258,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\KhoaMon\Details.cshtml" />
+    <Content Include="Views\KhoaMon\Create.cshtml" />
+    <Content Include="Views\Khoa\Index.cshtml" />
+    <Content Include="Views\Khoa\DanhSachMonHocCuaKhoa.cshtml" />
+    <Content Include="Views\Khoa\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -279,14 +281,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903281454556_InitDB.resx">
-      <DependentUpon>201903281454556_InitDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903300903372_InitDB.resx">
+      <DependentUpon>201903300903372_InitDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903281456479_TaoDataMau.resx">
-      <DependentUpon>201903281456479_TaoDataMau.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903281544580_TaoThemDataChoBangKETQUAs.resx">
-      <DependentUpon>201903281544580_TaoThemDataChoBangKETQUAs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903300904503_TaoDataMau.resx">
+      <DependentUpon>201903300904503_TaoDataMau.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QuanLyDiem.Models.KhoaMon>
+
+@{
+    ViewBag.Title = "DanhSachMonHocCuaKhoa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Các môn học của khoa @ViewBag.Khoa</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MonHoc.TenMonHoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongSoTietHoc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonHoc.TenMonHoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongSoTietHoc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,7 +8,7 @@ namespace QuanLyDiem.Models
     public class SinhVien
     {
         [Key]        
-        public int Id { get; set; }        
+        public int Id { get; set; }
         public string Ho { get; set; }
         public string Ten { get; set; }
         public DateTime NgaySinh { get; set; }        
@@ -16,6 +17,6 @@ namespace QuanLyDiem.Models
         public int GioiTinh { get; set; }
         public DateTime NienKhoa { get; set; }
         public int LopId { get; set; }
-        public Lop Lop { get; set; }
+        public IEnumerable<Lop> Lop { get; set; }
     }
 }
