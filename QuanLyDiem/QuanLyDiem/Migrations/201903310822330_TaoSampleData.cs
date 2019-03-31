@@ -3,7 +3,7 @@ namespace QuanLyDiem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class TaoDataMau : DbMigration
+    public partial class TaoSampleData : DbMigration
     {
         public override void Up()
         {
@@ -77,7 +77,6 @@ namespace QuanLyDiem.Migrations
             Sql("INSERT INTO SINHVIENS(Ho, Ten, NgaySinh, DiaChi, DienThoai, GioiTinh, NienKhoa, LopId) VALUES(N'Trần Hoàng', N'Mai', '11/27/2002', N'Cao Bằng', '0357534854',1, '2015', 4)");
             Sql("INSERT INTO SINHVIENS(Ho, Ten, NgaySinh, DiaChi, DienThoai, GioiTinh, NienKhoa, LopId) VALUES(N'Đồng Hữu', N'Quân', '11/27/2003', N'Lào Cai', '0357183746',1, '2013', 5)");
             Sql("INSERT INTO SINHVIENS(Ho, Ten, NgaySinh, DiaChi, DienThoai, GioiTinh, NienKhoa, LopId) VALUES(N'Phạm Đào Anh', N'Hương', '11/27/2004', N'Sơn La', '0357375616',1, '2015', 5)");
-            Sql("INSERT INTO SINHVIENS(Ho, Ten, NgaySinh, DiaChi, DienThoai, GioiTinh, NienKhoa, LopId) VALUES(N'Phạm Đào Anh', N'Hương', '11/27/2005', N'Đà Lạt', '0357254616',1, '2015', 5)");
 
             Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (1, 1, 1, 1)");
             Sql("INSERT INTO KETQUAS(SinhVienId, MonHocId, LanThi, DiemThi) VALUES (2, 2, 1, 1)");
@@ -96,6 +95,7 @@ namespace QuanLyDiem.Migrations
         
         public override void Down()
         {
+
         }
     }
 }

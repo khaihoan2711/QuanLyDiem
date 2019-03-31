@@ -44,20 +44,25 @@ namespace QuanLyDiem.Controllers
         }
 
         // GET: KetQua/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int svId, int monHocId, int lanThi)
         {
-            return View();
+            var ketqua = dbContext.KetQuas
+                .Include(c => c.SinhVien)
+                .Include(c => c.MonHoc)
+                .Where(c => c.SinhVienId == svId && c.MonHocId == monHocId && c.LanThi == lanThi)
+                .FirstOrDefault();
+            return View(ketqua);
         }
 
         // GET: KetQua/Create
-        public ActionResult Create()
+        public ActionResult NhapKetQua()
         {
             return View();
         }
 
         // POST: KetQua/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult NhapKetQua(FormCollection collection)
         {
             try
             {
@@ -72,18 +77,25 @@ namespace QuanLyDiem.Controllers
         }
 
         // GET: KetQua/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int svId, int monHocId, int lanThi)
         {
-            return View();
+            KetQua model = dbContext.KetQuas
+                .Include(c => c.SinhVien)
+                .Include(c => c.MonHoc)
+                .Where(c => c.SinhVienId == svId && c.MonHocId == monHocId && c.LanThi == lanThi)
+                .FirstOrDefault();
+            return View(model);
         }
 
         // POST: KetQua/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(KetQua kq)
         {
             try
             {
-                // TODO: Add update logic here
+                dbContext.KetQuas.Add(kq);
+                dbContext.Entry(kq).State = EntityState.Modified;
+                dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -94,25 +106,20 @@ namespace QuanLyDiem.Controllers
         }
 
         // GET: KetQua/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int svId, int monHocId, int lanThi)
         {
-            return View();
-        }
 
-        // POST: KetQua/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+            KetQua model = dbContext.KetQuas
+                .Include(c => c.SinhVien)
+                .Include(c => c.MonHoc)
+                .Where(c => c.SinhVienId == svId && c.MonHocId == monHocId && c.LanThi == lanThi)
+                .FirstOrDefault();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            dbContext.KetQuas.Add(model);
+            dbContext.Entry(model).State = EntityState.Deleted;
+            dbContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

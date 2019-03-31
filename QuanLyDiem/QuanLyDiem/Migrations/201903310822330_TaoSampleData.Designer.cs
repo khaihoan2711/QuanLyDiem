@@ -7,13 +7,13 @@ namespace QuanLyDiem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class TaoDataMau : IMigrationMetadata
+    public sealed partial class TaoSampleData : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TaoDataMau));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(TaoSampleData));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903300904503_TaoDataMau"; }
+            get { return "201903310822330_TaoSampleData"; }
         }
         
         string IMigrationMetadata.Source

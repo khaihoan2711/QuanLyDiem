@@ -23,8 +23,6 @@
                 <input type="submit" value="Tìm kiếm" class="btn btn-default" />
             </div>
         </div>
-
-        
     </div>
 }
 
@@ -36,22 +34,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SinhVien.Id)
+            Sinh vien ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SinhVien.Ho)
+            Họ SV
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SinhVien.Ten)
+            Tên SV
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MonHoc.TenMonHoc)
+            Tên môn học
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LanThi)
+            Lần thi
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DiemThi)
+            Điểm
         </th>
         <th></th>
     </tr>
@@ -77,9 +75,9 @@
             @Html.DisplayFor(modelItem => item.DiemThi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { svId=item.SinhVienId, monHocId=item.MonHocId, lanThi = item.LanThi}) |
+            @Html.ActionLink("Details", "Details", new { svId = item.SinhVienId, monHocId = item.MonHocId, lanThi = item.LanThi }) |
+            @Html.ActionLink("Delete", "Delete", new { svId = item.SinhVienId, monHocId = item.MonHocId, lanThi = item.LanThi })
         </td>
     </tr>
 }

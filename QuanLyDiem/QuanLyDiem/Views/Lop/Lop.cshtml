@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QuanLyDiem.Models.Lop>
+
+@{
+    ViewBag.Title = "Lop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lop</h2>
+
+<p>
+    @Html.ActionLink("Create New", "ThemLop")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenLop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiSo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KhoaID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SiSo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KhoaID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -3,7 +3,7 @@ namespace QuanLyDiem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitDB : DbMigration
+    public partial class KhoiTaoDB : DbMigration
     {
         public override void Up()
         {
@@ -42,8 +42,21 @@ namespace QuanLyDiem.Migrations
                         DiaChi = c.String(),
                         DienThoai = c.String(),
                         GioiTinh = c.Int(nullable: false),
-                        NienKhoa = c.DateTime(nullable: false),
+                        NienKhoa = c.Int(nullable: false),
                         LopId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Lops", t => t.LopId, cascadeDelete: true)
+                .Index(t => t.LopId);
+            
+            CreateTable(
+                "dbo.Lops",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        TenLop = c.String(),
+                        SiSo = c.Int(nullable: false),
+                        KhoaID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -72,15 +85,15 @@ namespace QuanLyDiem.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Lops",
+                "dbo.KhoaMonViewModels",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        TenLop = c.String(),
-                        SiSo = c.Int(nullable: false),
-                        KhoaID = c.Int(nullable: false),
+                        Khoa = c.Int(nullable: false),
+                        MonHoc = c.Int(nullable: false),
+                        TinChi = c.Int(nullable: false),
+                        TongSoTietHoc = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => new { t.Khoa, t.MonHoc });
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -161,6 +174,7 @@ namespace QuanLyDiem.Migrations
             DropForeignKey("dbo.KhoaMons", "MonHocId", "dbo.MonHocs");
             DropForeignKey("dbo.KhoaMons", "KhoaId", "dbo.Khoas");
             DropForeignKey("dbo.KetQuas", "SinhVienId", "dbo.SinhViens");
+            DropForeignKey("dbo.SinhViens", "LopId", "dbo.Lops");
             DropForeignKey("dbo.KetQuas", "MonHocId", "dbo.MonHocs");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -170,6 +184,7 @@ namespace QuanLyDiem.Migrations
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.KhoaMons", new[] { "MonHocId" });
             DropIndex("dbo.KhoaMons", new[] { "KhoaId" });
+            DropIndex("dbo.SinhViens", new[] { "LopId" });
             DropIndex("dbo.KetQuas", new[] { "MonHocId" });
             DropIndex("dbo.KetQuas", new[] { "SinhVienId" });
             DropTable("dbo.AspNetUserLogins");
@@ -177,9 +192,10 @@ namespace QuanLyDiem.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Lops");
+            DropTable("dbo.KhoaMonViewModels");
             DropTable("dbo.Khoas");
             DropTable("dbo.KhoaMons");
+            DropTable("dbo.Lops");
             DropTable("dbo.SinhViens");
             DropTable("dbo.MonHocs");
             DropTable("dbo.KetQuas");

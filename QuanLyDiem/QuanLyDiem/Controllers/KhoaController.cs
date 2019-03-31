@@ -1,4 +1,5 @@
 ﻿using QuanLyDiem.Models;
+using QuanLyDiem.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,13 +114,42 @@ namespace QuanLyDiem.Controllers
         }
 
         
-        public ActionResult ThemMonHocChoKhoa(int khoaId)
+        public ActionResult ThemMonHocChoKhoa()
         {
-
             try
             {
-                var khoaMon = dbContext.KhoaMons.Where(c => c.KhoaId == khoaId).ToList();
-                return View(khoaMon);
+                var model = new KhoaMonViewModel
+                {
+                    Khoas = dbContext.Khoas.ToList(),
+                    MonHocs = dbContext.MonHocs.ToList()
+                };
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult ThemMonHocChoKhoa(KhoaMonViewModel model)
+        {
+            try
+            {
+                var khoaMon = new KhoaMon
+                {
+                    KhoaId = model.Khoa,
+                    MonHocId = model.MonHoc,
+                    TinChi = model.TinChi,
+                    TongSoTietHoc = model.TongSoTietHoc
+                    
+                };
+
+                dbContext.KhoaMons.Add(khoaMon);
+                dbContext.SaveChanges();
+
+                return RedirectToAction("ThemMonHocChoKhoa");
             }
             catch
             {

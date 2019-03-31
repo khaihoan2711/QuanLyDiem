@@ -1,0 +1,53 @@
+﻿@model QuanLyDiem.Models.KetQua
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KetQua</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Môn học
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonHoc.TenMonHoc)
+        </dd>
+
+        <dt>
+            Họ & tên
+        </dt>
+
+        <dd>
+            @Model.SinhVien.Ho  @Model.SinhVien.Ten
+        </dd>
+
+
+
+        <dt>
+            Lần thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanThi)
+        </dd>
+
+        <dt>
+            Điểm thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiemThi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { svid = Model.SinhVienId, monHocId = Model.MonHocId, lanThi=Model.LanThi }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

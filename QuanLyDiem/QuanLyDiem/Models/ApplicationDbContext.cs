@@ -25,5 +25,7 @@ namespace QuanLyDiem.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<QuanLyDiem.ViewModel.KhoaMonViewModel> KhoaMonViewModels { get; set; }
     }
 }

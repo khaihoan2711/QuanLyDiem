@@ -15,8 +15,8 @@ namespace QuanLyDiem.Models
         public string DiaChi { get; set; }        
         public string DienThoai{ get; set; }
         public int GioiTinh { get; set; }
-        public DateTime NienKhoa { get; set; }
+        public int NienKhoa { get; set; }
         public int LopId { get; set; }
-        public IEnumerable<Lop> Lop { get; set; }
+        public Lop Lop { get; set; }
     }
 }

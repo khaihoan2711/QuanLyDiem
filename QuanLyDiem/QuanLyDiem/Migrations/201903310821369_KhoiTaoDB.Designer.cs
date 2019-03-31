@@ -7,13 +7,13 @@ namespace QuanLyDiem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitDB : IMigrationMetadata
+    public sealed partial class KhoiTaoDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(KhoiTaoDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903300903372_InitDB"; }
+            get { return "201903310821369_KhoiTaoDB"; }
         }
         
         string IMigrationMetadata.Source
