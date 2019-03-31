@@ -43,7 +43,8 @@ namespace QuanLyDiem.Controllers
             try
             {
                 MonHoc mh = _dbContext.MonHocs.Where(c => c.Id == k.Id).FirstOrDefault();
-                mh.Id = k.Id;
+                
+                mh.TenMonHoc= k.TenMonHoc;
                 _dbContext.MonHocs.Add(mh);
                 _dbContext.Entry(mh).State = EntityState.Modified;
                 // TODO: Add update logic here
