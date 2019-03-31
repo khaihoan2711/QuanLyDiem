@@ -1,0 +1,87 @@
+﻿@model IEnumerable<QuanLyDiem.Models.KetQua>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>SinhVien</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nhập mã SV</label>
+            <div class="col-md-10">
+                <input id="svId" name="svId" class="form-control" style="float:left" />
+                <input type="submit" value="Tìm kiếm" class="btn btn-default" />
+            </div>
+        </div>
+
+        
+    </div>
+}
+
+
+<label>
+    Danh sách điểm của sinh viên
+</label>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SinhVien.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SinhVien.Ho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SinhVien.Ten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonHoc.TenMonHoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LanThi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemThi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SinhVien.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SinhVien.Ho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SinhVien.Ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonHoc.TenMonHoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LanThi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemThi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

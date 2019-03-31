@@ -19,14 +19,20 @@ namespace QuanLyDiem.Controllers
             var ketQua = dbContext.KetQuas
                 .Include(c => c.SinhVien)
                 .Include(c => c.MonHoc)
-                .OrderBy(c => c.SinhVien.Ho+" "+c.SinhVien.Ten)
+                .OrderBy(c => c.SinhVien.Ten)
                 .ToList();
 
             return View(ketQua);
         }
 
-        public ActionResult XemDiemTheoMaSv(int svId)
+        [HttpPost]
+        public ActionResult Index(int svId = 0)
         {
+
+            if (svId == 0)
+            {
+                return RedirectToAction("Index");
+            }
             var ketQua = dbContext.KetQuas
                 .Include(c => c.SinhVien)
                 .Include(c => c.MonHoc)
@@ -34,7 +40,7 @@ namespace QuanLyDiem.Controllers
                 .OrderBy(c => c.MonHoc.TenMonHoc)
                 .ToList();
 
-            return View(ketQua);
+            return View("Index", ketQua);
         }
 
         // GET: KetQua/Details/5
