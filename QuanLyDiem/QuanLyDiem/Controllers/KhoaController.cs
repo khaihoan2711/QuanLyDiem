@@ -62,17 +62,22 @@ namespace QuanLyDiem.Controllers
         // GET: Khoa/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var khoa = dbContext.Khoas.Where(c => c.Id == id).FirstOrDefault();
+            return View(khoa);
         }
 
         // POST: Khoa/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Khoa k)
         {
             try
             {
+                Khoa khoa = dbContext.Khoas.Where(c => c.Id == k.Id).FirstOrDefault();
+                khoa.TenKhoa = k.TenKhoa;
+                dbContext.Khoas.Add(khoa);
+                dbContext.Entry(khoa).State = EntityState.Modified;
                 // TODO: Add update logic here
-
+                dbContext.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -84,21 +89,41 @@ namespace QuanLyDiem.Controllers
         // GET: Khoa/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var khoa = dbContext.Khoas.Where(c => c.Id == id).FirstOrDefault();
+            
+            return View(khoa);
         }
 
         // POST: Khoa/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Khoa k)
         {
             try
             {
-                // TODO: Add delete logic here
+                dbContext.Khoas.Add(k);
+                dbContext.Entry(k).State = EntityState.Deleted;
 
+                dbContext.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
+                return View();
+            }
+        }
+
+        
+        public ActionResult ThemMonHocChoKhoa(int khoaId)
+        {
+
+            try
+            {
+                var khoaMon = dbContext.KhoaMons.Where(c => c.KhoaId == khoaId).ToList();
+                return View(khoaMon);
+            }
+            catch
+            {
+
                 return View();
             }
         }

@@ -7,9 +7,8 @@
 
 <h2>Các môn học của khoa @ViewBag.Khoa</h2>
 
-<p>
-    @Html.ActionLink("Tạo mới", "Create")
-</p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -36,8 +35,6 @@
             @Html.DisplayFor(modelItem => item.TongSoTietHoc)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>

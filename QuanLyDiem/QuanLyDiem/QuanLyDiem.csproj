@@ -175,6 +175,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KetQuaController.cs" />
     <Compile Include="Controllers\KhoaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -263,6 +264,10 @@
     <Content Include="Views\Khoa\Index.cshtml" />
     <Content Include="Views\Khoa\DanhSachMonHocCuaKhoa.cshtml" />
     <Content Include="Views\Khoa\Create.cshtml" />
+    <Content Include="Views\Khoa\Edit.cshtml" />
+    <Content Include="Views\Khoa\Delete.cshtml" />
+    <Content Include="Views\KetQua\XemDiemTheoMaSv.cshtml" />
+    <Content Include="Views\KetQua\XemDiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
